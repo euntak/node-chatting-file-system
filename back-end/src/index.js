@@ -15,12 +15,16 @@ import connectMongoose from './config/connect-mongoose';
 import routes from './routes';
 import flash from 'express-flash';
 
+import socketio from 'socket.io';
+
 
 dotenv.config();
 require('./config/passport');
 connectMongoose();
 
 const app = express();
+const httpServer = http.createServer(app);
+const io = socketio(http).listen(httpServer);
 const port = process.env.PORT || 3000;
 
 const MongoStore = connectMongo(session);
@@ -55,7 +59,20 @@ app.use(passport.session());
 app.use(routes);
 
 
-http.createServer(app).listen(port, () => {
+// io.on('connection', function (socket) {
+//     console.log('a user connected');
+//     socket.on('chat message', function(msg){
+//         console.log('message: ' + msg);
+//     });
+// });
+
+io.on('connection', function (socket) {
+    socket.on('chat message', function (msg) {
+        io.emit('chat message', msg);
+    });
+});
+
+httpServer.listen(port, () => {
     console.log(`Express is running on PORT : ${port}`);
 });
 

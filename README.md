@@ -14,7 +14,7 @@ npm 4.2.0
   * src
   * package.json
 * front-end
-  * build
+  * dist
   * node_modules
   * src
   * package.json
@@ -28,21 +28,36 @@ node build를 통해서 서버 실행
 
 
 ### MongoDB 설치
+
 일단 로컬 환경에서 테스트 할 수 있도록 MAC OS에서 설치, homebrew를 통해서 설치 후,
 mongod --dbpath <directory> 를 통해서 DBPATH를 재 설정함.
 다음엔 스키마 작성.
  ```json
  USER {
   username,
-  password,
-  email
+  password
  }
  ```
 
 mongoose 4.11 >= 부터 promise이 활용 되면서, mongoose connect()등 메서등이 deprecated되었고, 이를 해결 하기 위해서 blubird나 global.Promise를 사용해서 connection 이후에 여러가지 작업들을 promise chainning으로 쿼리를 작성 할 수 있다.
 
+### socket.io
+
+[tutorial](https://socket.io/get-started/chat/) 진행.
+
 ## 2. 실행 방법
 
-npm start ( 내부적으로 npm run build && node build 실행 스크립트 작성 )
+cd back-end && npm start
+cd front-end && npm start
+
+build / dist 폴더 생성 및 파일 Copy 후 실행
 
 ## 3. 구현된 기능들 짧게 소개
+
+
+* [x] 로그인 구현
+* [x] 회원가입 구현
+* [x] 세션 연결
+* [x] 세션 리다이렉트 연결
+* [x] 채팅 연결
+* [x] 채팅 주고받기

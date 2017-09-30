@@ -4,6 +4,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
         login: ['./src/js/login.js'],
+        index: ['./src/js/index.js']
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -15,12 +16,12 @@ module.exports = {
         ]
     },
     externals: {
-        "jquery": "jQuery"
+        "jQuery": "jQuery"
     },
     plugins: [
         new CopyWebpackPlugin([
-            {from:'src/css',to:'css'},
-            {from:'src/views',to:'views'},
+            { from: 'src/css', to: 'css' },
+            { from: 'src/views', to: 'views' },
         ])
     ]
 }
