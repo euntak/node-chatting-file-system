@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>INDEX</title>
+  <link rel='stylesheet' href='/css/index.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/">HOME</a></li>
+          </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/signin">Sign in</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-md-offset-4 frame">
+        <p>
+          <%= user._id %>
+        </p>
+        <p>
+          <%= user.username %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text pull-left">Copyright © 2014 Tukar Buku. All Right Reserved.
+    </div>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>
