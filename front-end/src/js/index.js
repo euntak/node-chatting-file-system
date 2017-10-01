@@ -1,23 +1,43 @@
-import $ from 'jquery';
-import io from 'socket.io-client';
-const socket = io();
+import Chat from './Chat';
+// import {validusername} from '../../shared/util'
 
-$(function () {    
-    
-    $(".mytext").on("keyup", function(e){
-        if (e.which == 13){
-            var text = $(this).val();
-            if (text !== ""){
-                console.log(text);
-                socket.emit('chat message', text);
-                $(this).val('');    
+class Client {
+    constructor () {
+        let btn = document.getElementById('startButton'),
+            userNameInput = document.getElementById('userNameInput');
+        
+        btn.onclick = () => {
+            this.startChat(userNameInput.value);
+        };
+
+        userNameInput.addEventListener('keypress', (e) => {
+            let key = e.which || e.keyCode;
+
+            if (key === 13) {
+                this.startChat(userNameInput.value);
             }
+        });
+    }
+
+    startChat(username) {
+        let usernameErrorText = document.querySelector('#startMenu .input-error');
+
+        if (username) {
+            usernameErrorText.style.opacity = 0;
+            this.username = username;
+        } else {
+            usernameErrorText.style.opacity = 1;
+            return false;
         }
-    });
 
-    // client - to - client
-    socket.on('chat message', function (msg) {
-        $('.messages').append($('<li>').text(msg));
-    });
+        this.chat = new Chat(this.username);
 
-});
+        document.getElementById('startMenu').style.display = 'none';
+        document.getElementById('chatContainer').style.display = 'flex';
+        // document.getElementById('userList').style.display = 'flex';
+    }
+}
+
+window.onload = () => {
+    new Client();
+};

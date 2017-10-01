@@ -7,6 +7,10 @@ router.get('/', authenticated, function(req, res) {
     res.render('index', { user: req.user });
 });
 
+router.get('/chat', authenticated, function(req, res) {
+    res.render('chat', { user: req.user });
+})
+
 router.get('/signin', function(req, res) {
     res.render('signin', {ErrorMessage: req.flash('ErrorMessage')});
 });

@@ -8,47 +8,50 @@
 </head>
 
 <body>
-  <div class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="/">HOME</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/signup">Sign Up</a></li>
-          <li><a href="/signin">Sign in</a></li>
-        </ul>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/chat">Chatting</a></li>
+            <li><a href="/file">FILE Manager</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
   <div class="container">
     <div class="row">
-      <p>
-        WELCOME ! <%= user.username %>
-      </p>
-      <div class="col-md-3 frame">
+        <h1>WELCOME ! <%= user.username %></h1>
+      <div class="col-md-12 frame">
 
-        <ul class="messages"></ul>
+        <!-- <ul class="messages"></ul>
         <div>
           <div class="msj-rta macro" style="margin:auto">
             <div class="text text-r" style="background:whitesmoke !important">
               <input class="mytext" placeholder="Type a message" />
             </div>
           </div>
+        </div> -->
+        <!-- <div class="chatbox" id="chatbox">
+            <ul id="chatList" class="chat-list"></ul>
+            <input id="chatInput" type="text" class="chat-input" placeholder="Chat here..." maxlength="35" />
         </div>
+        <div id="startMenu">
+            <input type="text" tabindex="0" autofocus placeholder="Enter your name here" id="userNameInput" maxlength="25" />
+            <b class="input-error">Nick must be alphanumeric characters only!</b>
+            <br />
+            <a><button id="startButton">Chat</button></a>
+        </div> -->
       </div>
     </div>
   </div>
-
-  <div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-      <p class="navbar-text pull-left">Copyright © 2014 Tukar Buku. All Right Reserved.
-    </div>
-  </div>
-  <script src="/js/index.js"></script>
+  
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<!-- <script src="/js/index.js"></script> -->
 </html>
