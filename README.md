@@ -39,9 +39,9 @@ npm 4.2.0
 
 * ES6 문법을 사용하기 위해서 .babelrc 로 preset 지정,
 npm run script로, node express 서버 실행 하기 전에, 
-ES6로 짜여진 소스코드 babel precompile해서 build 디렉토리로 이동됩니다. 
+ES6로 짜여진 소스코드는 babel에 의해 es2015문법으로 변환된 파일들이 build 디렉토리로 이동됩니다. 
 
-* .env 파일에는 ( dotenv ) 라이브러리를 사용하여, PORT나, Mongoose등에서 사용할 환경 변수 설정을 해줍니다.
+* .env 파일에는(dotenv 라이브러리를 사용) PORT나, Mongoose등에서 사용할 환경 변수 설정을 해줍니다.
 
 ### MongoDB 설치
 
@@ -101,14 +101,15 @@ mongod --dbpath <Local directory>
 * 압축 해제
 
 
-* back-end 폴더 내에 `.envcopy` 파일에 항목을 알맞게 작성해주시고, `.env` 로 이름을 변경해주시면 됩니다.
+* back-end 폴더 내에 `.envcopy` 파일에 항목을 알맞게 작성해주시고, `.env` 로 파일 이름을 변경해주시면 됩니다.
+* `SECRIT_KEY`는 session 생성에 필요한 session secret key 입니다.
 
 ```
 .env file example
 PORT=4000
 DB_URL=mongodb://localhost/name
 DB_NAME=name
-SECRET_KEY=ASDFASDFASDF!@#!@#!@#
+SECRET_KEY=THIS_IS_SESSION_SECRET_KEY!@#
 ```
 
 * node_modules 설치 및 실행
@@ -127,11 +128,9 @@ cd front-end
 $ front-end > npm install && npm start
 ```
 
-* `SECRIT_KEY`는 session 생성에 필요한 session secret key 입니다.
-
-이후에, server에서는 build / front에서는 dist 폴더 생성 및 파일 Copy 후 자동으로 실행됩니다!
-
-dev, environment 환경 설정이 따로 되어있지 않습니다.
+* server에서는 build / front에서는 dist 폴더 생성 및 파일 Copy 후 자동으로 실행됩니다!
+* dev, environment 환경 설정이 따로 되어있지 않습니다.
+* localhost:PORT 접속!
 
 ## 3. 구현된 기능들 짧게 소개
 
