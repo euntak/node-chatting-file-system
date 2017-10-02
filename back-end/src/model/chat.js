@@ -22,10 +22,6 @@ Chat.statics.add = function(newChat) {
     return addChat.save();
 }
 
-// Chat.statics.getChattingsByLimit = function(limit) {
-//     return this.find({}).limit(limit);
-// }
-
 Chat.statics.getChattingLogBySkipLimit = function (skip, limit) {
     return this.find({}).sort({time:1}).skip(skip).limit(limit);
 }

@@ -6,32 +6,33 @@
 node v7.8.0
 npm 4.2.0 
 
-파일 구조를 보기 편하게 잡기 위한 디렉토리 구조 잡기
+* 파일 구조를 보기 편하게 구성하기
 
-* back-end
-  * build
-  * node_modules
-  * src
-    * config
-    * controller
-    * model
-    * routes
-    * util
-  * package.json
-  * .env
-  * .babelrc
-  * .gitignore
-* front-end
-  * dist (static files)
-  * node_modules
-  * src
-    * css
-    * js
-    * views ( view engine ejs)
-  * package.json
-  * .gitignore
-  * .babelrc
-  * webpack.config.js
+* goorm-test (root)
+  * back-end (server)
+    * build
+    * node_modules
+    * src
+      * config
+      * controller
+      * model
+      * routes
+      * util
+    * package.json
+    * .env
+    * .babelrc
+    * .gitignore
+  * front-end (client)
+    * dist (static files)
+    * node_modules
+    * src
+      * css
+      * js
+      * views ( view engine ejs)
+    * package.json
+    * .gitignore
+    * .babelrc
+    * webpack.config.js
 
 
 ### Express 설치
@@ -52,7 +53,7 @@ mongod --dbpath <Local directory>
 
 #### Schema
 
- ```json
+ ```js
  USER {
   _id,
   username, // 유저 이름
@@ -61,7 +62,7 @@ mongod --dbpath <Local directory>
  }
  ```
 
- ```json
+ ```js
   Chat {
     _id,
     username, // 유저 이름
@@ -97,16 +98,16 @@ mongod --dbpath <Local directory>
 
 ## 2. 실행 방법
 
-압축 해제 후, 폴더로 들어가서 
+압축 해제 후, goorm-test 폴더로 들어가서
 
 ```bash
 cd back-end && npm start
 cd front-end && npm start
 ```
 
-이후에, server에서는 build / front에서는 dist 폴더 생성 및 파일 Copy 후 실행
+이후에, server에서는 build / front에서는 dist 폴더 생성 및 파일 Copy 후 자동으로 실행됩니다!
 
-dev, environment 환경 설정이 따로 되어있지 않습니다...
+dev, environment 환경 설정이 따로 되어있지 않습니다.
 
 ## 3. 구현된 기능들 짧게 소개
 
@@ -127,6 +128,7 @@ dev, environment 환경 설정이 따로 되어있지 않습니다...
 ### 소개
 
 * JS 코딩은 ES6 문법을 사용하였습니다.
+* VIEW는 Bootstrap + jQuery로 구현했습니다.
 * 회원가입, 로그인 및 세션 유지를 `MongoStore`를 이용하여 하였습니다.
 * 로그인시 유효한 유저이름이나, 비밀번호에 대해서 `flash message`를 통해 유저에게 알려줍니다.
 * 로그인이 필요한 페이지 요청이나 api 요청에 대해서는 `authenticated` (middleware)를 구현하여 요청에 대한 알맞은 응답을 보내도록 하였습니다. 
@@ -138,19 +140,18 @@ dev, environment 환경 설정이 따로 되어있지 않습니다...
 
 ## 4. TodoList
 
-* ~~[o] 로그인 구현~~
-* ~~[o] 회원가입 구현~~
-* ~~[o] 세션 연결~~
-* ~~[o] 세션 리다이렉트 연결~~
-* ~~[o] 채팅 연결~~
-* ~~[o] 채팅 주고받기~~
-* ~~[o] 귓속말 구현~~
-* ~~[o] 채팅 입력시 스크롤 제일 하단 설정 해줘야 겠다. 아니면 새로운 채팅이 오면 스크롤을 제일 하단으로.~~
-* ~~[o] 채팅 시간 표현하기 momentJS 사용해보기~~
-* ~~[o] 유저 목록에서 특정 유저를 클릭하면 input tag에 자동으로 `/w username` 삽입 할 수 있도록. ALL의 경우에는 `/w username` 삭제~~
-* ~~[o] 채팅 정보 저장 하기 mongoDB~~
-* ~~[o] 지금 까지의 채팅정보를 긁어서 어떻게 파싱해서 보여주나 ? ( 귓속말도 있을 테니.. ) 최신 100개 정도만 긁어서 보여준다~~
-* [ ] 채팅이 많이 쌓이면 페이징 해야될 것 같은데
-* [ ] 10개 더보기 뭐 이런걸로 구현 해야 될 듯
-* [ ] 파일 매니저 구현
-* [ ] 코드 및 구조 리팩토링
+[x] 로그인 구현
+[x] 회원가입 구현
+[x] 세션 연결
+[x] 세션 리다이렉트 연결
+[x] 채팅 연결
+[x] 채팅 주고받기
+[x] 귓속말 구현
+[x] 채팅 입력시 스크롤 제일 하단 설정 해줘야 겠다. 아니면 새로운 채팅이 오면 스크롤을 제일 하단으로.
+[x] 채팅 시간 표현하기 momentJS 사용해보기
+[x] 유저 목록에서 특정 유저를 클릭하면 input tag에 자동으로 `/w username` 삽입 할 수 있도록. ALL의 경우에는 `/w username` 삭제
+[x] 채팅 정보 저장 하기 mongoDB
+[x] 지금 까지의 채팅정보를 긁어서 어떻게 파싱해서 보여주나 ? ( 귓속말도 있을 테니.. ) 최신 100개 정도만 긁어서 보여준다
+[ ] 채팅이 많이 쌓이면 페이징 해야될 것 같은데 `더보기` 로 구현..
+[ ] 파일 매니저 구현
+[ ] 코드 및 구조 리팩토링
