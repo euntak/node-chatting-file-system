@@ -98,12 +98,31 @@ mongod --dbpath <Local directory>
 
 ## 2. 실행 방법
 
-압축 해제 후, goorm-test 폴더로 들어가서
+* 압축 해제
+
+
+* back-end 폴더 내에 `.envcopy` 파일에 항목을 알맞게 작성해주시고, `.env` 파일로 변경해주시면 됩니다.
+
+```
+PORT=4000
+DB_URL=mongodb://localhost/name
+DB_NAME=name
+SECRET_KEY=ASDFASDFASDF!@#!@#!@#
+```
+
+* node_modules 설치 및 실행
 
 ```bash
-cd back-end && npm start
-cd front-end && npm start
+cd back-end
+$ back-end > npm install
+$ back-end > npm start
+
+cd front-end
+$ front-end > npm install
+$ front-end > npm start
 ```
+
+* `SECRIT_KEY`는 session 생성에 필요한 session secret key 입니다.
 
 이후에, server에서는 build / front에서는 dist 폴더 생성 및 파일 Copy 후 자동으로 실행됩니다!
 
