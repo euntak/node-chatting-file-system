@@ -3,7 +3,6 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        login: ['./src/js/login.js'],
         index: ['./src/js/index.js']
     },
     output: {

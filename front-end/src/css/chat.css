@@ -1,10 +1,10 @@
 * {
     font-family: sans-serif;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .chatContainer {
-    display: none;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
@@ -82,6 +82,17 @@
     color: #999;
 }
 
+.chatbox .chat-list li span {
+    font-size: 8px;
+    width: 75px;
+    display: inline-block;
+    text-align: center;
+    background-color: #bfbfbf;
+    color: white;
+    border-radius: 10px;
+    vertical-align: bottom;
+}
+
 .chatbox .chat-list li.system {
     color: #777;
     font-style: italic;
@@ -100,6 +111,10 @@
     border: none;
     border-top: 1px solid #DDD;
     outline: none;
+}
+
+#chatInput {
+    display: none;
 }
 
 #startMenu {
