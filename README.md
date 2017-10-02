@@ -101,9 +101,10 @@ mongod --dbpath <Local directory>
 * 압축 해제
 
 
-* back-end 폴더 내에 `.envcopy` 파일에 항목을 알맞게 작성해주시고, `.env` 파일로 변경해주시면 됩니다.
+* back-end 폴더 내에 `.envcopy` 파일에 항목을 알맞게 작성해주시고, `.env` 로 이름을 변경해주시면 됩니다.
 
 ```
+.env file example
 PORT=4000
 DB_URL=mongodb://localhost/name
 DB_NAME=name
@@ -112,14 +113,18 @@ SECRET_KEY=ASDFASDFASDF!@#!@#!@#
 
 * node_modules 설치 및 실행
 
-```bash
-cd back-end
-$ back-end > npm install
-$ back-end > npm start
+터미널창을 두개 사용하여, 각각 다음과 같은 명령어를 실행합니다.
 
+```bash
+server 설치 및 실행
+cd back-end
+$ back-end > npm install && npm start
+```
+
+```bash
+client 설치 및 실행 
 cd front-end
-$ front-end > npm install
-$ front-end > npm start
+$ front-end > npm install && npm start
 ```
 
 * `SECRIT_KEY`는 session 생성에 필요한 session secret key 입니다.
